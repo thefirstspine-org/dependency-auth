@@ -53,12 +53,6 @@ TFS Platform is NOT licensed. You are free to download, view, run the repository
 npm run build
 ```
 
-### Test
-
-```bash
-npm run test
-```
-
 ### Lint
 
 ```bash

@@ -3,7 +3,7 @@ import fetch, { Response } from 'node-fetch';
 /**
  * Service to interact with the auth net service.
  */
-class AuthService {
+export class AuthService {
 
   /**
    * Default Auth net service URL.
