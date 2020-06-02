@@ -57,11 +57,11 @@ Validates a JWT to the auth platform service.
 
 - `jwt: string` The JWT to send to the auth net service.
 
-#### getAuthNetSeviceUrl
+#### getAuthNetServiceUrl
 
 Get the auth net service URL according to the AUTH_URL environment variable
 
-**Synopsis:** `getAuthNetSeviceUrl(): string`
+**Synopsis:** `getAuthNetServiceUrl(): string`
 
 ## License
 

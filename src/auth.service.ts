@@ -16,7 +16,7 @@ class AuthService {
    */
   async me(jwt: string): Promise<number|null> {
     // Check the bearer JSON token
-    const response: Response = await fetch(this.getAuthNetSeviceUrl() + '/api/me', {
+    const response: Response = await fetch(this.getAuthNetServiceUrl() + '/api/me', {
       headers: {
         Authorization: `Bearer ${jwt}`,
       },
@@ -34,7 +34,7 @@ class AuthService {
   /**
    * Get the auth net service URL according to the AUTH_URL environment variable.
    */
-  public getAuthNetSeviceUrl(): string {
+  public getAuthNetServiceUrl(): string {
     return process.env?.AUTH_URL?.length > 0 ? process.env.AUTH_URL : AuthService.AUTH_URL_DEFAULT;
   }
 
