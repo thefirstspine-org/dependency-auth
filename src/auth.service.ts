@@ -1,7 +1,9 @@
+import fetch, { Response } from 'node-fetch';
+
 /**
  * Service to interact with the auth net service.
  */
-export class AuthService {
+class AuthService {
 
   /**
    * Default Auth net service URL.
@@ -12,9 +14,9 @@ export class AuthService {
    * Validates a JWT to the auth platform service.
    * @param jwt The JWT to send to the auth net service
    */
-  async login(jwt: string): Promise<number|null> {
+  async me(jwt: string): Promise<number|null> {
     // Check the bearer JSON token
-    const response: Response = await fetch(process.env.AUTH_URL + '/api/me', {
+    const response: Response = await fetch(this.getAuthNetSeviceUrl() + '/api/me', {
       headers: {
         Authorization: `Bearer ${jwt}`,
       },
@@ -33,7 +35,9 @@ export class AuthService {
    * Get the auth net service URL according to the AUTH_URL environment variable.
    */
   public getAuthNetSeviceUrl(): string {
-    return process.env.AUTH_URL ? process.env.AUTH_URL : AuthService.AUTH_URL_DEFAULT;
+    return process.env?.AUTH_URL?.length > 0 ? process.env.AUTH_URL : AuthService.AUTH_URL_DEFAULT;
   }
 
 }
+
+export default new AuthService();
