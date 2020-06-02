@@ -7,36 +7,34 @@ More information here: <https://github.com/thefirstspine/auth>
 
 ## How to use
 
+### Install
+
+```bash
+npm i @thefirstspine/auth@latest
+```
+
 ### Build
 
 ```bash
-
 npm run build
-
 ```
 
 ### Test
 
 ```bash
-
 npm run test
-
 ```
 
 ### Lint
 
 ```bash
-
 npm run lint
-
 ```
 
 ### Publish on NPM
 
 ```bash
-
 npm publish
-
 ```
 
 ## Configuration
@@ -56,6 +54,11 @@ Validates a JWT to the auth platform service.
 **Params:**
 
 - `jwt: string` The JWT to send to the auth net service.
+
+#### getAuthNetSeviceUrl
+
+Get the auth net service URL according to the AUTH_URL environment variable
+**Synopsis:** `getAuthNetSeviceUrl(): string`
 
 ## License
 
