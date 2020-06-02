@@ -50,7 +50,9 @@ Service to interact with the auth net service.
 #### me
 
 Validates a JWT to the auth platform service.
+
 **Synopsis:** `async  me(jwt: string): Promise<number|null>`
+
 **Params:**
 
 - `jwt: string` The JWT to send to the auth net service.
@@ -58,6 +60,7 @@ Validates a JWT to the auth platform service.
 #### getAuthNetSeviceUrl
 
 Get the auth net service URL according to the AUTH_URL environment variable
+
 **Synopsis:** `getAuthNetSeviceUrl(): string`
 
 ## License
