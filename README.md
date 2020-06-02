@@ -41,10 +41,6 @@ Get the auth net service URL according to the AUTH_URL environment variable
 
 **Synopsis:** `getAuthNetServiceUrl(): string`
 
-## License
-
-TFS Platform is NOT licensed. You are free to download, view, run the repository. You are NOT allowed to redistribute this project for both commercial and non-commercial use. Deal with it.
-
 ## How to use
 
 ### Build
@@ -64,3 +60,7 @@ npm run lint
 ```bash
 npm publish
 ```
+
+## License
+
+TFS Platform is NOT licensed. You are free to download, view, run the repository. You are NOT allowed to redistribute this project for both commercial and non-commercial use. Deal with it.
