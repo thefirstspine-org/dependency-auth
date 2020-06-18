@@ -16,7 +16,7 @@ export class AuthService {
    */
   async me(jwt: string): Promise<number|null> {
     // Check the bearer JSON token
-    const response: Response = await fetch(this.getAuthNetServiceUrl() + '/api/me', {
+    const response: Response = await fetch(this.getAuthNetServiceUrl() + '/api/v2/me', {
       headers: {
         Authorization: `Bearer ${jwt}`,
       },
