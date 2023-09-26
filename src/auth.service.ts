@@ -1,4 +1,4 @@
-import fetch, { Response } from 'node-fetch';
+import axios from "axios";
 
 /**
  * Service to interact with the auth net service.
@@ -16,7 +16,7 @@ export class AuthService {
    */
   async me(jwt: string): Promise<number|null> {
     // Check the bearer JSON token
-    const response: Response = await fetch(this.getAuthNetServiceUrl() + '/api/v2/me', {
+    const response: Response = await axios.get(this.getAuthNetServiceUrl() + '/api/v2/me', {
       headers: {
         Authorization: `Bearer ${jwt}`,
       },
