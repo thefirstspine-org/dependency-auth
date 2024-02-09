@@ -16,19 +16,26 @@ export class AuthService {
    */
   async me(jwt: string): Promise<number|null> {
     // Check the bearer JSON token
-    const response = await axios.get(this.getAuthNetServiceUrl() + '/api/v2/me', {
-      headers: {
-        Authorization: `Bearer ${jwt}`,
-      },
-    });
+    try {
+      const response = await axios.get(this.getAuthNetServiceUrl() + '/api/v2/me', {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
 
-    const jsonResponse = response.data;
-    if (!jsonResponse.user_id) {
+      const jsonResponse = response.data;
+      if (!jsonResponse.user_id) {
+        return null;
+      }
+  
+      // Return the user ID
+      return jsonResponse.user_id;
+    } catch(e) {
+      console.log({ errorFromAxios: e });
       return null;
     }
 
-    // Return the user ID
-    return jsonResponse.user_id;
+    return null;
   }
 
   /**
