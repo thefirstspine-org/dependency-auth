@@ -1,6 +1,6 @@
 {
   "name": "@thefirstspine/auth",
-  "version": "2.2.7",
+  "version": "3.0.0",
   "description": "Javascript & Typescript dependency to help developers to use the auth net service.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.15.19",
+    "@types/node": "^22.15.21",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.56.0",

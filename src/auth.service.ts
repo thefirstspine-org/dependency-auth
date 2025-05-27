@@ -25,7 +25,7 @@ export class AuthService {
 
     // Check the bearer JSON token
     try {
-      const response = await axios.get(this.getAuthNetServiceUrl() + '/api/v2/me', {
+      const response = await axios.get(this.getAuthNetServiceUrl() + '/api/v3/me', {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
