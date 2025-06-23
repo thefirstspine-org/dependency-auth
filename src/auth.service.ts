@@ -1,12 +1,14 @@
 import axios from "axios";
-import { MeResponse } from "./me-response.interface";
 
 /**
  * Service to interact with the auth net service.
  */
 export class AuthService {
 
-  private cachedMeResponses: {[key: string]: MeResponse} = {};
+  private cachedMeResponses: {[key: string]: {
+    expires: number;
+    user: IPublicUser;
+  }} = {};
 
   /**
    * Default Auth net service URL.
@@ -18,9 +20,21 @@ export class AuthService {
    * @param jwt The JWT to send to the auth net service
    */
   async me(jwt: string): Promise<number|null> {
+    const user = await this.meFull(jwt);
+    if (user == null) {
+      return null;
+    }
+    return user.user_id;
+  }
+
+  /**
+   * Validates a JWT to the auth platform service.
+   * @param jwt The JWT to send to the auth net service
+   */
+  async meFull(jwt: string): Promise<IPublicUser|null> {
     // Get cached response
     if (this.cachedMeResponses[jwt] != undefined && (new Date()).getTime() < this.cachedMeResponses[jwt].expires) {
-      return this.cachedMeResponses[jwt].user_id;
+      return this.cachedMeResponses[jwt].user;
     }
 
     // Check the bearer JSON token
@@ -39,11 +53,11 @@ export class AuthService {
       // Cache the response
       this.cachedMeResponses[jwt] = {
         expires: (new Date()).getTime() + (60 * 1000), // one minute
-        user_id: jsonResponse.user_id,
+        user: jsonResponse,
       };
   
-      // Return the user ID
-      return jsonResponse.user_id;
+      // Return the user
+      return this.cachedMeResponses[jwt].user;
     } catch(e) {
       console.log({ errorFromAxios: e });
       return null;
@@ -62,3 +76,13 @@ export class AuthService {
 }
 
 export default new AuthService();
+
+/**
+ * Public user entity.
+ */
+export interface IPublicUser {
+  user_id: number;
+  is_guest: boolean;
+  email: string;
+  meta: { [key: string]: string | number | boolean | null };
+}
