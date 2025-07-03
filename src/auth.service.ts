@@ -59,7 +59,6 @@ export class AuthService {
       // Return the user
       return this.cachedMeResponses[jwt].user;
     } catch(e) {
-      console.log({ errorFromAxios: e });
       return null;
     }
 
