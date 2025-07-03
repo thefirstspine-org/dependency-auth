@@ -1,6 +1,6 @@
 {
   "name": "@thefirstspine/auth",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Javascript & Typescript dependency to help developers to use the auth net service.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
