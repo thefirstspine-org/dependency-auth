@@ -1,23 +1,23 @@
 {
   "name": "@thefirstspine/auth",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Javascript & Typescript dependency to help developers to use the auth net service.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "axios": "^1.10.0"
+    "axios": "^1.12.2"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.0.10",
+    "@types/node": "^24.6.2",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.56.0",
-    "jest": "^30.0.4",
+    "jest": "^30.2.0",
     "rimraf": "^6.0.1",
-    "ts-jest": "^29.4.0",
+    "ts-jest": "^29.4.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
   },
   "scripts": {
     "build": "rimraf ./lib && tsc -b",
