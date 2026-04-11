@@ -69,7 +69,7 @@ export class AuthService {
    * Get the auth net service URL according to the AUTH_URL environment variable.
    */
   public getAuthNetServiceUrl(): string {
-    return process.env?.AUTH_URL?.length > 0 ? process.env.AUTH_URL : AuthService.AUTH_URL_DEFAULT;
+    return process.env?.AUTH_URL ? process.env.AUTH_URL : AuthService.AUTH_URL_DEFAULT;
   }
 
 }
